@@ -7,3 +7,9 @@
 
 
 # [딥러닝 공부 정리](https://drive.google.com/file/d/16olGwVvk_smtgopmuUtouOf1ad1RGpIf/view?usp=sharingh): 13장부터 Speech 관련 내용
+
+
+
+### Reference
+   * https://www.youtube.com/channel/UCZPFjMe1uRSirmSpznqvJfQ
+
