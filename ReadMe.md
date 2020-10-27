@@ -1,5 +1,6 @@
 # [Speech Recognition에 필요한 Audio 기초](https://github.com/hccho2/SpeechRecgnition/blob/main/Speech%20Recognition%EC%97%90%20%ED%95%84%EC%9A%94%ED%95%9C%20Audio%20%EA%B8%B0%EC%B4%88.pdf)
 # Music Genre Classification
+  * [Data Download](https://www.kaggle.com/andradaolteanu/gtzan-dataset-music-genre-classification)
   * [딥러닝 모델](model_hccho.py)
   * [xgboost, lightgbm](music-genre-classification-xgboost.py)
   
