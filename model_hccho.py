@@ -160,7 +160,7 @@ def json_load_test():
 def load_csv_data(csv_filename,start_col=1):
     
     data = pd.read_csv(csv_filename)  # (999,60)
-    data = data.iloc[0:, 1:]  # (9990, 59)
+    data = data.iloc[0:, 1:]  # (9990, 59)  파일명 제거.
     print(data.head(5))
     
     X = data.loc[:, data.columns != 'label'] #select all columns but not the labels  ===> 58개 featrues
@@ -210,12 +210,18 @@ def load_json_data(data_path):
 
 def train_mlp():
     
-    #csv_filename = CSV_PATH  # start_col=1
-    csv_filename = r'D:\SpeechRecognition\DeepLearningForAudioWithPython-musikalkemist\Data\data_adv_3_sec_hccho.csv'  # start_col=0
+    mode = 2
+    if mode==1:
+        # download features file
+        csv_filename = CSV_PATH  # start_col=1
+        start_col = 1
+    else:
+        #extract_features_advanced()로 만든 features
+        csv_filename = r'D:\SpeechRecognition\DeepLearningForAudioWithPython-musikalkemist\Data\data_adv_3_sec_no_var_hccho.csv'  # start_col=0
+        start_col = 0
     
     
-    
-    X_train, X_test, y_train, y_test = load_csv_data(csv_filename,start_col=0)  ##### json 파일 Load
+    X_train, X_test, y_train, y_test = load_csv_data(csv_filename,start_col=start_col)  ##### json 파일 Load
     train_dataset = tf.data.Dataset.from_tensor_slices((X_train,y_train))
     train_dataset = train_dataset.shuffle(buffer_size=1000)
     train_dataset = train_dataset.batch(batch_size=32,drop_remainder=True)
@@ -557,7 +563,7 @@ def extract_features_advanced():
     
     
     DATASET_PATH = r'D:\SpeechRecognition\DeepLearningForAudioWithPython-musikalkemist\Data\genres_original'
-    output_filename = 'data_adv_3_sec.csv'   # 300초 x 10개 = 50분 소요.
+    output_filename = 'data_adv_3_sec_no_var_hccho.csv'   # 300초 x 10개 = 50분 소요.
     num_segments = 10
 
     header = 'filename chroma_stft_mean chroma_stft_var rmse_mean rmse_var spectral_centroid_mean spectral_centroid_var'
@@ -654,7 +660,7 @@ def extract_features_advanced2():
     
     
     DATASET_PATH = r'D:\SpeechRecognition\DeepLearningForAudioWithPython-musikalkemist\Data\genres_original'
-    output_filename = 'data_adv_3_sec.csv'   # 300초 x 10개 = 50분 소요.
+    output_filename = 'data_adv_3_sec_hccho.csv'   # 300초 x 10개 = 50분 소요.
     num_segments = 10
 
     header = 'filename chroma_stft_mean chroma_stft_var rmse_mean rmse_var spectral_centroid_mean spectral_centroid_var'
@@ -750,12 +756,12 @@ if __name__ == "__main__":
     
     #json_load_test()
     #load_csv_data()
-    #train_mlp()
+    train_mlp()
     #train_cnn()
     #train_rnn()
     
     
-    train_xgboost_mfcc()
+    #train_xgboost_mfcc()
     
     
     
