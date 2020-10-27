@@ -2,7 +2,7 @@
 # Music Genre Classification
   * [Data Download](https://www.kaggle.com/andradaolteanu/gtzan-dataset-music-genre-classification)
   * [딥러닝 모델](model_hccho.py)
-  * [xgboost, lightgbm](music-genre-classification-xgboost.py)
+  * [EDA, xgboost, lightgbm](music-genre-classification-xgboost.py)
   
 
 
