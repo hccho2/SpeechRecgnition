@@ -1,0 +1,11 @@
+https://github.com/mozilla/LPCNet
+
+
+!apt-get install autoconf
+
+apt-get install libtool
+
+
+./autogen.sh
+./configure
+make
